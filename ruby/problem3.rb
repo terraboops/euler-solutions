@@ -1,6 +1,6 @@
 number = 600851475143
 
-#Find upper limit of haystack for prime search based on size of number
+#Heuristic to scale haystack size - only works for square root-smooth numbers
 def primeScalingFunction n
   if (scaledNum = Math.sqrt(n).floor) > 2
     return scaledNum
