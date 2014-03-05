@@ -30,7 +30,7 @@ time = Benchmark.realtime do
       return root
     elsif(sum_abc < VALUE_BEING_SEARCHED)
       next_root = matrix * root
-      traverse_each_matrix(next_root)
+      return traverse_each_matrix(next_root)
     else
       return false
     end
@@ -53,6 +53,10 @@ time = Benchmark.realtime do
   @result = traverse_each_matrix(root)
 end
 
-puts "A: #{@result[0,0]}, B: #{@result[1,0]}, C: #{@result[2,0]}"
-puts "product: #{@result[0,0]*@result[1,0]*@result[2,0]}"
-puts "Time elapsed #{time*1000} milliseconds"
+if @result
+  puts "A: #{@result[0,0]}, B: #{@result[1,0]}, C: #{@result[2,0]}"
+  puts "product: #{@result[0,0]*@result[1,0]*@result[2,0]}"
+  puts "Time elapsed #{time*1000} milliseconds"
+else
+  puts "You can only search for sums which can be factored into a pythagorean triple."
+end
